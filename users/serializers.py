@@ -34,6 +34,11 @@ class UserSerializer(serializers.Serializer):
         max_length=50,
     )
 
+    # recipes = RecipeSerializer(
+    #     many=True,
+    #     read_only=True,
+    # )
+
     def create(self, validated_data):
         if validated_data["is_employee"]:
             return User.objects.create_superuser(**validated_data)
